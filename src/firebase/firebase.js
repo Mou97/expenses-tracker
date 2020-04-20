@@ -15,22 +15,4 @@ firebase.initializeApp(config)
 
 const database = firebase.database()
 
-// to work with arrays 
-// database.ref('expenses').push({
-//     value: 1500,
-//     note: "this is a note"
-// })
-
-database.ref('expenses').on('value', snapshot => {
-    let expenses = []
-    snapshot.forEach(childSnapshot => {
-        expenses.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val()
-        })
-    })
-
-    console.log(expenses)
-})
-
-
+export { firebase, database as default }
