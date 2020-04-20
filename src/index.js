@@ -5,6 +5,8 @@ import { Provider } from 'react-redux'
 import AppRouter from './routes/AppRouter'
 import configStore from './store/configStore'
 
+import './firebase/firebase'
+
 import '../node_modules/normalize.css/normalize.css'
 import './styles/index.scss'
 // import actions
