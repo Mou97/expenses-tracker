@@ -6,3 +6,9 @@ export const startLogin = () => {
         return firebase.auth().signInWithPopup(googleAuthProvider)
     }
 }
+
+export const signOut = () => {
+    return () => {
+        return firebase.auth().signOut()
+    }
+}
