@@ -7,20 +7,19 @@ import CreateExpensePage from '../components/CreateExpensePage'
 import EditExpensePage from '../components/EditExpensePage'
 import { helpPage } from '../components/HelpPage'
 import { notFoundPage } from '../components/NotFoundPage'
-import Header from '../components/Header'
 import LoginPage from '../components/Login'
+import PrivateRoute from './PrivateRoute'
 
 export const history = createBrowserHistory()
 
 const AppRouter = () => (
     <Router history={history} >
         <div>
-            <Header />
             <Switch>
                 <Route path="/" component={LoginPage} exact />
-                <Route path="/dashboard" component={ExpenseDashboardPage} />
-                <Route path="/create" component={CreateExpensePage} />
-                <Route path="/edit/:id" component={EditExpensePage} />
+                <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
+                <PrivateRoute path="/create" component={CreateExpensePage} />
+                <PrivateRoute path="/edit/:id" component={EditExpensePage} />
                 <Route path="/help" component={helpPage} />
                 <Route component={notFoundPage} />
             </Switch>
