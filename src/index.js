@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { Provider } from 'react-redux'
 
-import AppRouter from './routes/AppRouter'
+import AppRouter, { history } from './routes/AppRouter'
 import configStore from './store/configStore'
 import './firebase/firebase'
 import '../node_modules/normalize.css/normalize.css'
@@ -19,18 +19,28 @@ const jsx = (
     </Provider>
 )
 
+let hasRendered = false
+const renderApp = () => {
+    if (!hasRendered) {
+        ReactDom.render(jsx, document.getElementById('root'))
+        hasRendered = false
+    }
+}
+
 ReactDom.render(<p>Loading...</p>, document.getElementById('root'))
 
-store.dispatch(startSetExpenses()).then(() => {
 
-    ReactDom.render(jsx, document.getElementById('root'))
-})
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        console.log('log in ')
+        store.dispatch(startSetExpenses()).then(() => {
+            renderApp()
+            if (history.location.pathname === '/') {
+                history.push('/dashboard')
+            }
+        })
     } else {
-        console.log('log out ')
-
+        renderApp()
+        history.push('/')
     }
 })
