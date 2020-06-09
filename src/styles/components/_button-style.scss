@@ -8,3 +8,15 @@
     border: none;
     font-size: $font-size-large;
 }
+
+.button__logout {
+    padding: $s-size $l-size;
+    color: white;
+    background-color: $accent-color;
+    border: 1px solid white;
+    height: 60%;
+}
+
+.button__logout:hover {
+    background-color: fade-out($color: #000, $amount: .9);
+}

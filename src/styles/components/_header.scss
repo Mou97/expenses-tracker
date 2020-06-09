@@ -1,0 +1,18 @@
+.header {
+    background: $accent-color;
+}
+
+.header__title {
+    color: white;
+    text-decoration: none;
+
+    h1 {
+        margin: 0;
+    }
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    padding: $m-size;
+}

@@ -1,14 +1,18 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOut } from '../actions/auth'
 
 const Header = (props) => (
-    <header>
-        <h1>Epensify</h1>
-        <NavLink to="/dashboard" activeClassName="is-active" >Dashboard</NavLink>
-        <NavLink to="/create" activeClassName="is-active">Create Expense</NavLink>
-        <button onClick={props.signout}>Logout</button>
+    <header className="header">
+        <div className="content-container">
+            <div className="header__content">
+                <Link className="header__title" to="/dashboard"  >
+                    <h1>Expenses Tracker</h1>
+                </Link>
+                <button className="button__logout" onClick={props.signout}>Logout</button>
+            </div>
+        </div>
     </header>
 )
 
