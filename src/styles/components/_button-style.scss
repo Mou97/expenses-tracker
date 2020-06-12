@@ -1,12 +1,14 @@
 .button {
-    width: 80%;
-    padding: $s-size 0;
+    padding: $s-size;
     border-radius: 3px;
     color: white;
     background-color: $accent-color;
     font-weight: 4000;
     border: none;
     font-size: $font-size-large;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 1;
 }
 
 .button__logout {
