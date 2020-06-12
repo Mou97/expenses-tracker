@@ -22,3 +22,8 @@
 .button__logout:hover {
     background-color: fade-out($color: #000, $amount: .9);
 }
+
+.button-secondary {
+    @extend .button;
+    background-color: grey;
+}
