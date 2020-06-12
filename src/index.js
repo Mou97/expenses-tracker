@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { Provider } from 'react-redux'
+import LoadingPage from './components/LoadingPage'
 
 import AppRouter, { history } from './routes/AppRouter'
 import configStore from './store/configStore'
@@ -24,11 +25,11 @@ let hasRendered = false
 const renderApp = () => {
     if (!hasRendered) {
         ReactDom.render(jsx, document.getElementById('root'))
-        hasRendered = false
+        hasRendered = true
     }
 }
 
-ReactDom.render(<p>Loading...</p>, document.getElementById('root'))
+ReactDom.render(<LoadingPage />, document.getElementById('root'))
 
 
 
